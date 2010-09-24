@@ -25,4 +25,26 @@ html, body, p {
     
     assert_equal(expected, output)
   end
+  
+  test "printer prints multiple beautiful blocks" do
+    @rules.shift # remove first element, we test it separately
+    output = @printer.format_all(@rules)
+    expected = <<-EOT 
+html, body, p {
+    margin: 0px;
+    display: block;
+}
+
+p {
+    padding: 0px;
+}
+
+#content {
+    font: 12px/normal sans-serif;
+}
+
+        EOT
+
+    assert_equal(expected, output)    
+  end
 end
