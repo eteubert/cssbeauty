@@ -7,9 +7,9 @@ module CSS
 
     def raw=(string)
       super
-      name, value = string.split(":")
+      name, *value = string.split(":")
       self.name = name.strip
-      self.value = value.strip
+      self.value = value.join(":").strip
     end
 
   end

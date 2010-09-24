@@ -12,6 +12,12 @@ class CssParserTest < ActiveSupport::TestCase
     EOT
   end
   
+  test "parser can handle background urls" do
+    @css = "#content { background: url(http://foo.bar/baz) }"
+    result = @parser.parse(@css)
+    assert_equal("url(http://foo.bar/baz)", result.first.properties.first.value)
+  end
+  
   test "parser finds css selector in one rule" do
     result = @parser.parse(@css)
     
