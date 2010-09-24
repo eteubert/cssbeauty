@@ -12,7 +12,6 @@ class CssParserTest < ActiveSupport::TestCase
     EOT
   end
   
-  # Replace this with your real tests.
   test "parser finds css selector in one rule" do
     result = @parser.parse(@css)
     
