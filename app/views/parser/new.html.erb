@@ -1,5 +1,8 @@
 <% form_tag('/parser/create') do |f| -%>
-  <p>
+  <div class="box">
+    <%= raw(CodeRay.scan(@css, :css).div(:css => :class)) %>
+  </div>
+  <p class="box">
     <%= text_area_tag 'css', @css, :rows => @rows %>
   </p>
   <p>
