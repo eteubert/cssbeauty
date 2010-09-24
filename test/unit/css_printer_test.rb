@@ -31,6 +31,23 @@ html, body, p {
     assert_equal("", output)
   end
   
+  test "dont nullify fractions" do
+    @parser = CSS::Parser.new
+    @css = <<-EOT
+      a { border-width: 0.8px; }
+    EOT
+    @rules = @parser.parse(@css)
+    output = @printer.format_rule(@rules.first)
+
+    expected = <<-EOT 
+a {
+    border-width: 0.8px;
+}
+    EOT
+
+        assert_equal(expected, output)
+  end
+  
   test "printer prints multiple beautiful blocks" do
     @rules.shift # remove first element, we test it separately
     output = @printer.format_all(@rules)
