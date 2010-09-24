@@ -7,7 +7,7 @@ class CssPrinterTest < ActiveSupport::TestCase
     @parser = CSS::Parser.new
     @css = <<-EOT
       body > .class a { } html, body, p { margin: 0px; display: block; }
-      p { padding: 0px; }
+      p { padding: 0px; } /* some comment */
       #content { font: 12px/normal sans-serif; }
     EOT
     @rules = @parser.parse(@css)

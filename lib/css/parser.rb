@@ -3,6 +3,9 @@ module CSS
     def parse(css)
       result = []
       
+      # stip comments
+      css.gsub!(/(\/\*.*\*\/)/, '')
+      
       rules = css.split("}")
       
       # remove last rule if it is empty
