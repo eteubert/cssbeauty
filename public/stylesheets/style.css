@@ -25,7 +25,9 @@ figure img {
 }
 
 body {
-    background-color: #3D3D3D;
+    background: #3D3D3D;
+    background-image: -moz-radial-gradient(center 45deg, circle closest-corner, #555 10%, #3D3D3D 70%);
+	background-image: -webkit-gradient(radial, center center, 10, center center, 490, from(#555), to(#3D3D3D));    
     color: #777777;
 }
 
@@ -34,6 +36,7 @@ h1 {
     font-weight: 100;
     font-size: 4em;
     margin: 50px 0px 25px 0px;
+    text-shadow: 0px -1px 0px #111;
 }
 
 #wrapper {
