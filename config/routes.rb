@@ -1,4 +1,6 @@
 Cssbeauty::Application.routes.draw do
+  root :to => "parser#new"
+  
   get "parser/new"
   post "parser/create"
 
