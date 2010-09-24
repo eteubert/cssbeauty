@@ -10,8 +10,18 @@ module CSS
       
       # iterate over each rule
       rules.each do |rule|
-        selector, attributes = rule.split("{")
-        result << CSS::Rule.new(:selector => CSS::Selector.new(:raw => selector.strip))
+        selector, raw_properties = rule.split("{")
+        properties = raw_properties.split(";")
+        
+        parsed_properties = []
+        properties.each do |property|
+          parsed_properties << CSS::Property.new(:raw => property) unless property.count(":") == 0
+        end
+        
+        result << CSS::Rule.new(
+          :selector   => CSS::Selector.new(:raw => selector.strip),
+          :properties => parsed_properties
+        )
       end
       
       return result

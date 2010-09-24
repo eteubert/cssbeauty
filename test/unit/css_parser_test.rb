@@ -6,7 +6,7 @@ class CssParserTest < ActiveSupport::TestCase
   def setup
     @parser = CSS::Parser.new
     @css = <<-EOT
-      body > .class a { } html, body, p { margin: 0px; }
+      body > .class a { } html, body, p { margin: 0px; display: block; }
       p { padding: 0px; }
       #content { font: 12px/normal sans-serif; }
     EOT
@@ -31,5 +31,16 @@ class CssParserTest < ActiveSupport::TestCase
     ]
     
     assert_equal(selectors, result.collect{ |rule| rule.selector.raw })
+  end
+  
+  test "parser finds properties" do
+    result = @parser.parse(@css)
+    
+    assert_equal("margin", result.second.properties.first.name)
+    assert_equal("0px", result.second.properties.first.value)
+    assert_equal("display", result.second.properties.second.name)
+    assert_equal("block", result.second.properties.second.value)
+    assert_equal("padding", result.third.properties.first.name)
+    assert_equal("font", result.fourth.properties.first.name)
   end
 end
