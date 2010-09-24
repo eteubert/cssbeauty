@@ -1,7 +1,9 @@
-<h1>CSS Parser</h1>
-
 <% form_tag('/parser/create') do |f| -%>
-  <%= text_area_tag 'css', @css, :size => "50x50" %>
-  <%= submit_tag "Beautify!" %>
+  <p>
+    <%= text_area_tag 'css', @css, :rows => @rows %>
+  </p>
+  <p>
+    <%= submit_tag "Beautify!", :class => "awesome" %>
+  </p>
 <% end -%>
 
