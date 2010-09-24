@@ -18,4 +18,18 @@ class CssParserTest < ActiveSupport::TestCase
     assert_instance_of(CSS::Rule, result.first)
     assert_equal("body > .class a", result.first.selector.raw)
   end
+  
+  test "parser finds all selectors" do
+    result = @parser.parse(@css)
+    
+    selectors = 
+    [
+      "body > .class a",
+      "html, body, p",
+      "p",
+      "#content"
+    ]
+    
+    assert_equal(selectors, result.collect{ |rule| rule.selector.raw })
+  end
 end
