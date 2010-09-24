@@ -26,6 +26,11 @@ html, body, p {
     assert_equal(expected, output)
   end
   
+  test "printer omits empty rules" do
+    output = @printer.format_rule(@rules.first)
+    assert_equal("", output)
+  end
+  
   test "printer prints multiple beautiful blocks" do
     @rules.shift # remove first element, we test it separately
     output = @printer.format_all(@rules)
