@@ -68,6 +68,7 @@ textarea {
     color: #AAA;
     font-size: 0.8em;
     resize: none;
+    outline: none;
 }
 
 .awesome {
