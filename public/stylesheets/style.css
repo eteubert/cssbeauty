@@ -26,8 +26,8 @@ figure img {
 
 body {
     background: #3D3D3D;
-    background-image: -moz-radial-gradient(center 45deg, circle closest-corner, #555 10%, #3D3D3D 70%);
-	background-image: -webkit-gradient(radial, center center, 10, center center, 490, from(#555), to(#3D3D3D));    
+    background: -moz-radial-gradient(center 450px 45deg, circle closest-side, #555 0%, #3D3D3D 100%);
+	background: -webkit-gradient(radial, center 450, 50, center 450, 450, from(#555), to(#3D3D3D));    
     color: #777777;
 }
 
