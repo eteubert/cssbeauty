@@ -14,7 +14,11 @@ module CSS
       unless rule.properties.empty?
         output << rule.selector.raw + " {\n"
         rule.properties.each do |property|
-          output << "    " + property.name + ": " + property.value + ";\n"
+          values = property.values.collect do |v|
+            # write 0 instead of 0<unit>
+            (v.value.match(/^\d/) && v.value.to_i === 0) ? 0 : v.value
+          end
+          output << "    " + property.name + ": " + values.join(" ") + ";\n"
         end
         output << "}\n"
       end

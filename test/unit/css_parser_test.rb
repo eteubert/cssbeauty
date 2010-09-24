@@ -48,5 +48,6 @@ class CssParserTest < ActiveSupport::TestCase
     assert_equal("block", result.second.properties.second.value)
     assert_equal("padding", result.third.properties.first.name)
     assert_equal("font", result.fourth.properties.first.name)
+    assert_equal("12px/normal", result.fourth.properties.first.values.first.value)
   end
 end

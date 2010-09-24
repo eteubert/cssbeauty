@@ -18,7 +18,7 @@ class CssPrinterTest < ActiveSupport::TestCase
     output = @printer.format_rule(@rules.second)
     expected = <<-EOT 
 html, body, p {
-    margin: 0px;
+    margin: 0;
     display: block;
 }
     EOT
@@ -36,12 +36,12 @@ html, body, p {
     output = @printer.format_all(@rules)
     expected = <<-EOT 
 html, body, p {
-    margin: 0px;
+    margin: 0;
     display: block;
 }
 
 p {
-    padding: 0px;
+    padding: 0;
 }
 
 #content {
