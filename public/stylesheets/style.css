@@ -28,6 +28,7 @@ body {
     background: #333;
     color: #fff;
     overflow-x: hidden;
+    background: -moz-radial-gradient(center center 45deg, circle cover, #333 23%, #222 100%);
     background: -webkit-gradient(radial, center center, 0, center center, 600, from(#333), to(#222));
 }
 
@@ -66,8 +67,9 @@ h1 a {
     left: -100px;
     background-color: #222;
     -webkit-box-shadow: inset rgba(0,0,0,1) 0px 0px 50px;
-    -moz-box-shadow:    inset rgba(0,0,0,1) 0px 0px 50px;
+    -moz-box-shadow:    inset rgba(0,0,0,1) 0px 0px 30px;
     box-shadow:         inset rgba(0,0,0,1) 0px 0px 50px;
+    background: -moz-radial-gradient(center center 45deg, circle cover, #333 23%, #222 100%);
     background: -webkit-gradient(radial, center center, 0, center center, 500, from(#333), to(#222));
 }
 
