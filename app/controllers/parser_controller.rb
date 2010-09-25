@@ -8,10 +8,14 @@ class ParserController < ApplicationController
   end
 
   def create
-    @parsed = CSS::Parser.new.parse(params[:css])
-    @css = CSS::Printer.new.format_all(@parsed)
-    @rows = @css.count("\n") + 1
-    render :new
+    if params[:css].empty?
+      redirect_to :action => "new" 
+    else
+      @parsed = CSS::Parser.new.parse(params[:css])
+      @css = CSS::Printer.new.format_all(@parsed)
+      @rows = @css.count("\n") + 1
+      render :new
+    end
   end
 
 end
