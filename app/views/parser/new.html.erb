@@ -3,12 +3,19 @@
     <div class="box">
       <%= raw(CodeRay.scan(@css, :css).div(:css => :class)) %>
     </div>
+    <p>
+      <%= link_to "Beautify Mlaore CSS", :root, :class => "awesome" %>
+    </p>
+  <% else %>
+    <div class="wrapper">
+      <div id="csshere"></div>
+    </div>
+    <p class="box">
+      <%= text_area_tag 'css', @css, :rows => @rows %>
+    </p>
+    <p>
+      <%= submit_tag "Beautify!", :class => "awesome" %>
+    </p>
   <% end %>
-  <p class="box">
-    <%= text_area_tag 'css', @css, :rows => @rows %>
-  </p>
-  <p>
-    <%= submit_tag "Beautify!", :class => "awesome" %>
-  </p>
 <% end -%>
 
